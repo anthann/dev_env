@@ -7,6 +7,8 @@ node default {
 
     include stdlib
     include apt
+    include users
+    include utils
 
     class { '::mysql::server':
         root_password           => 'qwertyui',
