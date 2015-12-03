@@ -9,6 +9,7 @@ node default {
     include apt
     include users
     include utils
+    include python
 
     class { '::mysql::server':
         root_password           => 'qwertyui',
