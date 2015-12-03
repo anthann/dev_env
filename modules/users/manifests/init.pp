@@ -1,13 +1,13 @@
 class users {
-    group { 'www-flask':
+    group { 'www-data':
         ensure => present,
     }
 
-    user { 'www-flask':
+    user { 'www-data':
         ensure => present,
-        groups => ['www-flask'],
+        groups => ['www-data'],
         membership => minimum,
         shell => "/bin/bash",
-        require => Group['www-flask']
+        require => Group['www-data']
     }
 }

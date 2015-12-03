@@ -9,7 +9,9 @@ node default {
     include apt
     include users
     include utils
+    include nginx
     include python
+    include uwsgi
 
     class { '::mysql::server':
         root_password           => 'qwertyui',
