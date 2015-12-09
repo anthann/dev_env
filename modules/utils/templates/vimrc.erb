@@ -16,7 +16,9 @@ set relativenumber
 set autoread                "文件在Vim之外修改过，自动重新读入
 
 set ignorecase              "检索时忽略大小写
-set fileencodings=uft-8,gbk "使用utf-8或gbk打开文件
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencoding=utf-8
+set encoding=utf-8
 set hls                     "检索时高亮显示匹配项
 set helplang=cn             "帮助系统设置为中文
 " set foldmethod=syntax       "代码折叠
