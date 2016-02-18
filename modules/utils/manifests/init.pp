@@ -3,7 +3,7 @@ class utils {
     ensure => installed,
   }
 
-  file { '/home/vagrant/.vimrc':
+  file { '~/.vimrc':
       ensure  => 'present',
       replace => 'no',
       content => template('utils/vimrc.erb'),
