@@ -13,9 +13,11 @@
 ### 对于`Ubuntu`，使用如下方式安装:  
 
 1. `apt-get install puppet git-core`  
-2. `cd /etc/puppet/`  
+2. `cd ~`  
 3. `git clone https://github.com/anthann/dev_env.git`  
-4. `sudo puppet apply /etc/puppet/manifests/site.pp`  
+4. `sudo mv dev_env/* /etc/puppet/`  
+5. `cd /etc/puppet/`  
+6. `sudo puppet apply /etc/puppet/manifests/init.pp`    
 
 ### 对于`vagrant`，使用如下方式安装:  
 
