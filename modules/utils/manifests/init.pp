@@ -3,7 +3,7 @@ class utils {
     ensure => installed,
   }
 
-  file { '~/.vimrc':
+  file { '/home/anthann/.vimrc':
       ensure  => 'present',
       replace => 'no',
       content => template('utils/vimrc.erb'),
