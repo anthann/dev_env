@@ -15,12 +15,20 @@ class uwsgi {
         "callable" => "app",
     }
 
-    file { "/var/www/flask":
+    file { "/var/www":
         ensure => directory,
         owner => "www-data",
         group => "www-data",
         mode => "0755",
         require => User["www-data"],
+    }
+
+    file { "/var/www/flask":
+        ensure => directory,
+        owner => "www-data",
+        group => "www-data",
+        mode => "0755",
+        require => [User["www-data"], File["/var/www"]],
     }
 
     package { "upstart":
