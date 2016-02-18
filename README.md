@@ -13,11 +13,14 @@
 ### 对于`Ubuntu`，使用如下方式安装:  
 
 1. `apt-get install puppet git-core`  
-2. `cd ~`  
-3. `git clone https://github.com/anthann/dev_env.git`  
-4. `sudo mv dev_env/* /etc/puppet/`  
-5. `cd /etc/puppet/`  
-6. `sudo puppet apply /etc/puppet/manifests/init.pp`    
+2. `cd /etc`  
+3. `sudo mv puppet/ puppet-bak`  
+4. `git clone --recursive https://github.com/anthann/dev_env.git /etc/puppet`  
+5. `sudo puppet apply /etc/puppet/manifests/init.pp`    
+
+当使用digitalocean新配置的服务器时，直接`puppet apply`可能会出现`warning: Could not retrieve fact fqdn`。  
+解决办法: `sudo vim /etc/hosts`  
+将`127.0.1.1`这一行的内容修改为`127.0.1.1 ubuntu-512mb-sfo1-01.example.com ubuntu-512mb-sfo1-01`。其中`ubuntu-512mb-sfo1-01`是我的主机名。  
 
 ### 对于`vagrant`，使用如下方式安装:  
 
