@@ -15,13 +15,21 @@ class uwsgi {
         "callable" => "app",
     }
 
+    file { "/var/www/flask":
+        ensure => directory,
+        owner => "www-data",
+        group => "www-data",
+        mode => "0755",
+        require => User["www-data"],
+    }
+
     package { "upstart":
         ensure => installed,
     }
     package { "uwsgi":
         ensure => installed,
         provider => pip,
-        require => [Class["python::packages"], Package["upstart"]],
+        require => [Class["python::packages"], Package["upstart"], File["/var/www/flask"]],
     }
     file { "/etc/init/uwsgi.conf":
         ensure => present,
